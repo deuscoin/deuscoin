@@ -1,13 +1,13 @@
-TESTS += test/test_bitcoin test/bitcoin-util-test.py
-bin_PROGRAMS += test/test_bitcoin
+TESTS += test/test_deuscoin test/deuscoin-util-test.py
+bin_PROGRAMS += test/test_deuscoin
 TEST_SRCDIR = test
-TEST_BINARY=test/test_bitcoin$(EXEEXT)
+TEST_BINARY=test/test_deuscoin$(EXEEXT)
 
 
 EXTRA_DIST += \
 	test/bctest.py \
-	test/bitcoin-util-test.py \
-	test/data/bitcoin-util-test.json \
+	test/deuscoin-util-test.py \
+	test/data/deuscoin-util-test.json \
 	test/data/blanktx.hex \
 	test/data/tt-delin1-out.hex \
 	test/data/tt-delout1-out.hex \
@@ -31,7 +31,7 @@ RAW_TEST_FILES = test/data/alertTests.raw
 
 GENERATED_TEST_FILES = $(JSON_TEST_FILES:.json=.json.h) $(RAW_TEST_FILES:.raw=.raw.h)
 
-BITCOIN_TESTS =\
+DEUSCOIN_TESTS =\
   test/bignum.h \
   test/alert_tests.cpp \
   test/allocator_tests.cpp \
@@ -60,7 +60,7 @@ BITCOIN_TESTS =\
   test/serialize_tests.cpp \
   test/sigopcount_tests.cpp \
   test/skiplist_tests.cpp \
-  test/test_bitcoin.cpp \
+  test/test_deuscoin.cpp \
   test/timedata_tests.cpp \
   test/transaction_tests.cpp \
   test/uint256_tests.cpp \
@@ -70,42 +70,42 @@ BITCOIN_TESTS =\
   test/sighash_tests.cpp
 
 if ENABLE_WALLET
-BITCOIN_TESTS += \
+DEUSCOIN_TESTS += \
   test/accounting_tests.cpp \
   test/wallet_tests.cpp \
   test/rpc_wallet_tests.cpp
 endif
 
-test_test_bitcoin_SOURCES = $(BITCOIN_TESTS) $(JSON_TEST_FILES) $(RAW_TEST_FILES)
-test_test_bitcoin_CPPFLAGS = $(BITCOIN_INCLUDES) -I$(builddir)/test/ $(TESTDEFS)
-test_test_bitcoin_LDADD = $(LIBBITCOIN_SERVER) $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBBITCOIN_UNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
+test_test_deuscoin_SOURCES = $(DEUSCOIN_TESTS) $(JSON_TEST_FILES) $(RAW_TEST_FILES)
+test_test_deuscoin_CPPFLAGS = $(DEUSCOIN_INCLUDES) -I$(builddir)/test/ $(TESTDEFS)
+test_test_deuscoin_LDADD = $(LIBDEUSCOIN_SERVER) $(LIBDEUSCOIN_CLI) $(LIBDEUSCOIN_COMMON) $(LIBDEUSCOIN_UTIL) $(LIBDEUSCOIN_CRYPTO) $(LIBDEUSCOIN_UNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(BOOST_UNIT_TEST_FRAMEWORK_LIB)
 if ENABLE_WALLET
-test_test_bitcoin_LDADD += $(LIBBITCOIN_WALLET)
+test_test_deuscoin_LDADD += $(LIBDEUSCOIN_WALLET)
 endif
 
 if USE_LIBSECP256K1
-  test_test_bitcoin_LDADD += secp256k1/libsecp256k1.la
+  test_test_deuscoin_LDADD += secp256k1/libsecp256k1.la
 endif
 
-test_test_bitcoin_LDADD += $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS)
-test_test_bitcoin_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS)
+test_test_deuscoin_LDADD += $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS)
+test_test_deuscoin_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS)
 
-nodist_test_test_bitcoin_SOURCES = $(GENERATED_TEST_FILES)
+nodist_test_test_deuscoin_SOURCES = $(GENERATED_TEST_FILES)
 
-$(BITCOIN_TESTS): $(GENERATED_TEST_FILES)
+$(DEUSCOIN_TESTS): $(GENERATED_TEST_FILES)
 
-CLEAN_BITCOIN_TEST = test/*.gcda test/*.gcno $(GENERATED_TEST_FILES)
+CLEAN_DEUSCOIN_TEST = test/*.gcda test/*.gcno $(GENERATED_TEST_FILES)
 
-CLEANFILES += $(CLEAN_BITCOIN_TEST)
+CLEANFILES += $(CLEAN_DEUSCOIN_TEST)
 
-bitcoin_test: $(TEST_BINARY)
+deuscoin_test: $(TEST_BINARY)
 
-bitcoin_test_check: $(TEST_BINARY) FORCE
+deuscoin_test_check: $(TEST_BINARY) FORCE
 	$(MAKE) check-TESTS TESTS=$^
 
-bitcoin_test_clean : FORCE
-	rm -f $(CLEAN_BITCOIN_TEST) $(test_test_bitcoin_OBJECTS) $(TEST_BINARY)
+deuscoin_test_clean : FORCE
+	rm -f $(CLEAN_DEUSCOIN_TEST) $(test_test_deuscoin_OBJECTS) $(TEST_BINARY)
 
 %.json.h: %.json
 	@$(MKDIR_P) $(@D)

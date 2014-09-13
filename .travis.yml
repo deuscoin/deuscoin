@@ -25,13 +25,13 @@ matrix:
   fast_finish: true
   include:
     - compiler: "true 1"
-      env: HOST=arm-linux-gnueabihf PACKAGES="g++-arm-linux-gnueabihf" DEP_OPTS="NO_QT=1" GOAL="install" BITCOIN_CONFIG"--enable-glibc-back-compat"
+      env: HOST=arm-linux-gnueabihf PACKAGES="g++-arm-linux-gnueabihf" DEP_OPTS="NO_QT=1" GOAL="install" DEUSCOIN_CONFIG"--enable-glibc-back-compat"
     - compiler: "true 2"
-      env: HOST=x86_64-unknown-linux-gnu DEP_OPTS="NO_QT=1 NO_WALLET=1 NO_UPNP=1" RUN_TESTS=true GOAL="install" BITCOIN_CONFIG="--enable-glibc-back-compat"
+      env: HOST=x86_64-unknown-linux-gnu DEP_OPTS="NO_QT=1 NO_WALLET=1 NO_UPNP=1" RUN_TESTS=true GOAL="install" DEUSCOIN_CONFIG="--enable-glibc-back-compat"
     - compiler: "true 3"
-      env: HOST=x86_64-unknown-linux-gnu RUN_TESTS=true GOAL="install" BITCOIN_CONFIG="--enable-glibc-back-compat"
+      env: HOST=x86_64-unknown-linux-gnu RUN_TESTS=true GOAL="install" DEUSCOIN_CONFIG="--enable-glibc-back-compat"
     - compiler: "true 4"
-      env: HOST=i686-pc-linux-gnu PACKAGES="g++-multilib" RUN_TESTS=true GOAL="install" BITCOIN_CONFIG="--enable-glibc-back-compat"
+      env: HOST=i686-pc-linux-gnu PACKAGES="g++-multilib" RUN_TESTS=true GOAL="install" DEUSCOIN_CONFIG="--enable-glibc-back-compat"
     - compiler: "true 5"
       env: HOST=x86_64-apple-darwin11 PACKAGES="gcc-multilib g++-multilib cmake libcap-dev libz-dev libbz2-dev" OSX_SDK=10.7 GOAL="deploy"
     - compiler: "true 6"
@@ -49,14 +49,14 @@ before_script:
     - make $MAKEJOBS -C depends HOST=$HOST $DEP_OPTS || (echo "Build failure. Verbose build follows." && make -C depends V=1 HOST=$HOST $DEP_OPTS)
 script:
     - OUTDIR=$BASE_OUTDIR/$TRAVIS_PULL_REQUEST/$TRAVIS_JOB_NUMBER-$HOST
-    - BITCOIN_CONFIG_ALL="--disable-dependency-tracking --prefix=$TRAVIS_BUILD_DIR/depends/$HOST --bindir=$OUTDIR/bin --libdir=$OUTDIR/lib"
+    - DEUSCOIN_CONFIG_ALL="--disable-dependency-tracking --prefix=$TRAVIS_BUILD_DIR/depends/$HOST --bindir=$OUTDIR/bin --libdir=$OUTDIR/lib"
     - depends/$HOST/native/bin/ccache --max-size=$CCACHE_SIZE
     - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then export CCACHE_READONLY=1; fi
     - ./autogen.sh
-    - ./configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
-    - make distdir PACKAGE=bitcoin VERSION=$HOST
-    - cd bitcoin-$HOST
-    - ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
+    - ./configure --cache-file=config.cache $DEUSCOIN_CONFIG_ALL $DEUSCOIN_CONFIG || ( cat config.log && false)
+    - make distdir PACKAGE=deuscoin VERSION=$HOST
+    - cd deuscoin-$HOST
+    - ./configure --cache-file=../config.cache $DEUSCOIN_CONFIG_ALL $DEUSCOIN_CONFIG || ( cat config.log && false)
     - make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && make $GOAL V=1 ; false )
     - if [ "$RUN_TESTS" = "true" ]; then make check; fi
 after_script:

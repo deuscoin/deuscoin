@@ -1,10 +1,10 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The Bitcoin developers
+// Copyright (c) 2009-2014 The Bitcoin Core and Deuscoin Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef _BITCOINRPC_SERVER_H_
-#define _BITCOINRPC_SERVER_H_
+#ifndef _DEUSCOINRPC_SERVER_H_
+#define _DEUSCOINRPC_SERVER_H_
 
 #include "uint256.h"
 #include "rpcprotocol.h"
@@ -80,7 +80,7 @@ public:
 };
 
 /**
- * Bitcoin RPC command dispatcher.
+ * Deuscoin RPC command dispatcher.
  */
 class CRPCTable
 {
@@ -209,4 +209,4 @@ extern json_spirit::Value gettxout(const json_spirit::Array& params, bool fHelp)
 extern json_spirit::Value verifychain(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value getchaintips(const json_spirit::Array& params, bool fHelp);
 
-#endif // _BITCOINRPC_SERVER_H_
+#endif // _DEUSCOINRPC_SERVER_H_

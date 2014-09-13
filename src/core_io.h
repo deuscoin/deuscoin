@@ -1,9 +1,9 @@
-// Copyright (c) 2009-2014 The Bitcoin developers
+// Copyright (c) 2009-2014 The Bitcoin Core and Deuscoin Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef __BITCOIN_CORE_IO_H__
-#define __BITCOIN_CORE_IO_H__
+#ifndef __DEUSCOIN_CORE_IO_H__
+#define __DEUSCOIN_CORE_IO_H__
 
 #include <string>
 #include <vector>
@@ -25,4 +25,4 @@ extern void ScriptPubKeyToUniv(const CScript& scriptPubKey,
                         UniValue& out, bool fIncludeHex);
 extern void TxToUniv(const CTransaction& tx, const uint256& hashBlock, UniValue& entry);
 
-#endif // __BITCOIN_CORE_IO_H__
+#endif // __DEUSCOIN_CORE_IO_H__

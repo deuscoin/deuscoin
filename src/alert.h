@@ -1,10 +1,10 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2009-2013 The Bitcoin developers
+// Copyright (c) 2009-2013 The Bitcoin Core and Deuscoin Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef _BITCOINALERT_H_
-#define _BITCOINALERT_H_
+#ifndef _DEUSCOINALERT_H_
+#define _DEUSCOINALERT_H_
 
 #include "serialize.h"
 #include "sync.h"
@@ -109,4 +109,4 @@ public:
     static CAlert getAlertByHash(const uint256 &hash);
 };
 
-#endif // _BITCOINALERT_H_
+#endif // _DEUSCOINALERT_H_

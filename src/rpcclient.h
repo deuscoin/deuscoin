@@ -1,10 +1,10 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2009-2013 The Bitcoin developers
+// Copyright (c) 2009-2013 The Bitcoin Core and Deuscoin Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef _BITCOINRPC_CLIENT_H_
-#define _BITCOINRPC_CLIENT_H_
+#ifndef _DEUSCOINRPC_CLIENT_H_
+#define _DEUSCOINRPC_CLIENT_H_
 
 #include "json/json_spirit_reader_template.h"
 #include "json/json_spirit_utils.h"
@@ -12,4 +12,4 @@
 
 json_spirit::Array RPCConvertValues(const std::string &strMethod, const std::vector<std::string> &strParams);
 
-#endif // _BITCOINRPC_CLIENT_H_
+#endif // _DEUSCOINRPC_CLIENT_H_

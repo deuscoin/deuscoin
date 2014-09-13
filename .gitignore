@@ -1,12 +1,12 @@
 *.tar.gz
 
 *.exe
-src/bitcoin
-src/bitcoind
-src/bitcoin-cli
-src/bitcoin-tx
-src/test/test_bitcoin
-src/qt/test/test_bitcoin-qt
+src/deuscoin
+src/deuscoind
+src/deuscoin-cli
+src/deuscoin-tx
+src/test/test_deuscoin
+src/qt/test/test_deuscoin-qt
 
 Makefile.in
 aclocal.m4
@@ -14,8 +14,8 @@ autom4te.cache/
 config.log
 config.status
 configure
-src/config/bitcoin-config.h
-src/config/bitcoin-config.h.in
+src/config/deuscoin-config.h
+src/config/deuscoin-config.h.in
 src/config/stamp-h1
 src/build-aux/
 share/setup.nsi
@@ -47,7 +47,7 @@ src/qt/test/moc*.cpp
 *.o
 *.o-*
 *.patch
-.bitcoin
+.deuscoin
 *.a
 *.pb.cc
 *.pb.h
@@ -62,12 +62,12 @@ src/qt/test/moc*.cpp
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-bitcoin-qt
-Bitcoin-Qt.app
+deuscoin-qt
+Deuscoin-Qt.app
 
 # Unit-tests
 Makefile.test
-bitcoin-qt_test
+deuscoin-qt_test
 
 # Resources cpp
 qrc_*.cpp
@@ -82,7 +82,7 @@ build
 #lcov
 *.gcno
 /*.info
-test_bitcoin.coverage/
+test_deuscoin.coverage/
 total.coverage/
 coverage_percent.txt
 
@@ -90,7 +90,7 @@ coverage_percent.txt
 linux-coverage-build
 linux-build
 win32-build
-qa/pull-tester/run-bitcoind-for-test.sh
+qa/pull-tester/run-deuscoind-for-test.sh
 qa/pull-tester/build-tests.sh
 
 !src/leveldb*/Makefile

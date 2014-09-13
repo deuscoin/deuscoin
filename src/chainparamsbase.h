@@ -1,16 +1,16 @@
-// Copyright (c) 2014 The Bitcoin developers
+// Copyright (c) 2014 The Bitcoin Core and Deuscoin Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_CHAIN_PARAMS_BASE_H
-#define BITCOIN_CHAIN_PARAMS_BASE_H
+#ifndef DEUSCOIN_CHAIN_PARAMS_BASE_H
+#define DEUSCOIN_CHAIN_PARAMS_BASE_H
 
 #include <vector>
 #include <string>
 
 /**
- * CBaseChainParams defines the base parameters (shared between bitcoin-cli and bitcoind)
- * of a given instance of the Bitcoin system.
+ * CBaseChainParams defines the base parameters (shared between deuscoin-cli and deuscoind)
+ * of a given instance of the Deuscoin system.
  */
 class CBaseChainParams
 {
@@ -55,4 +55,4 @@ bool SelectBaseParamsFromCommandLine();
  */
 bool AreBaseParamsConfigured();
 
-#endif // BITCOIN_CHAIN_PARAMS_BASE_H
+#endif // DEUSCOIN_CHAIN_PARAMS_BASE_H

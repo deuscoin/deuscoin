@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The Bitcoin developers
+// Copyright (c) 2009-2014 The Bitcoin Core and Deuscoin Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_POW_H
-#define BITCOIN_POW_H
+#ifndef DEUSCOIN_POW_H
+#define DEUSCOIN_POW_H
 
 #include <stdint.h>
 
@@ -23,4 +23,4 @@ void UpdateTime(CBlockHeader* block, const CBlockIndex* pindexPrev);
 
 uint256 GetProofIncrement(unsigned int nBits);
 
-#endif // BITCOIN_POW_H
+#endif // DEUSCOIN_POW_H

@@ -1,10 +1,10 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2012 The Bitcoin developers
+// Copyright (c) 2012 The Bitcoin Core and Deuscoin Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_UI_INTERFACE_H
-#define BITCOIN_UI_INTERFACE_H
+#ifndef DEUSCOIN_UI_INTERFACE_H
+#define DEUSCOIN_UI_INTERFACE_H
 
 #include <stdint.h>
 #include <string>
@@ -109,4 +109,4 @@ inline std::string _(const char* psz)
     return rv ? (*rv) : psz;
 }
 
-#endif // BITCOIN_UI_INTERFACE_H
+#endif // DEUSCOIN_UI_INTERFACE_H

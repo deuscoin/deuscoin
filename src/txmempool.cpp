@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2013 The Bitcoin developers
+// Copyright (c) 2009-2013 The Bitcoin Core and Deuscoin Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -221,7 +221,7 @@ public:
             }
             BOOST_FOREACH(const CTxMemPoolEntry* entry, e)
             {
-                // Fees are stored and reported as BTC-per-kb:
+                // Fees are stored and reported as DEUS-per-kb:
                 CFeeRate feeRate(entry->GetFee(), entry->GetTxSize());
                 double dPriority = entry->GetPriority(entry->GetHeight()); // Want priority when it went IN
                 seenTxConfirm(feeRate, minRelayFee, dPriority, i);

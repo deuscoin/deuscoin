@@ -1,79 +1,79 @@
-bin_PROGRAMS += qt/bitcoin-qt
-noinst_LIBRARIES += qt/libbitcoinqt.a
+bin_PROGRAMS += qt/deuscoin-qt
+noinst_LIBRARIES += qt/libdeuscoinqt.a
 
-# bitcoin qt core #
+# deuscoin qt core #
 QT_TS = \
-  qt/locale/bitcoin_ach.ts \
-  qt/locale/bitcoin_af_ZA.ts \
-  qt/locale/bitcoin_ar.ts \
-  qt/locale/bitcoin_be_BY.ts \
-  qt/locale/bitcoin_bg.ts \
-  qt/locale/bitcoin_bs.ts \
-  qt/locale/bitcoin_ca_ES.ts \
-  qt/locale/bitcoin_ca.ts \
-  qt/locale/bitcoin_ca@valencia.ts \
-  qt/locale/bitcoin_cmn.ts \
-  qt/locale/bitcoin_cs.ts \
-  qt/locale/bitcoin_cy.ts \
-  qt/locale/bitcoin_da.ts \
-  qt/locale/bitcoin_de.ts \
-  qt/locale/bitcoin_el_GR.ts \
-  qt/locale/bitcoin_en.ts \
-  qt/locale/bitcoin_eo.ts \
-  qt/locale/bitcoin_es_CL.ts \
-  qt/locale/bitcoin_es_DO.ts \
-  qt/locale/bitcoin_es_MX.ts \
-  qt/locale/bitcoin_es.ts \
-  qt/locale/bitcoin_es_UY.ts \
-  qt/locale/bitcoin_et.ts \
-  qt/locale/bitcoin_eu_ES.ts \
-  qt/locale/bitcoin_fa_IR.ts \
-  qt/locale/bitcoin_fa.ts \
-  qt/locale/bitcoin_fi.ts \
-  qt/locale/bitcoin_fr_CA.ts \
-  qt/locale/bitcoin_fr.ts \
-  qt/locale/bitcoin_gl.ts \
-  qt/locale/bitcoin_gu_IN.ts \
-  qt/locale/bitcoin_he.ts \
-  qt/locale/bitcoin_hi_IN.ts \
-  qt/locale/bitcoin_hr.ts \
-  qt/locale/bitcoin_hu.ts \
-  qt/locale/bitcoin_id_ID.ts \
-  qt/locale/bitcoin_it.ts \
-  qt/locale/bitcoin_ja.ts \
-  qt/locale/bitcoin_ka.ts \
-  qt/locale/bitcoin_kk_KZ.ts \
-  qt/locale/bitcoin_ko_KR.ts \
-  qt/locale/bitcoin_ky.ts \
-  qt/locale/bitcoin_la.ts \
-  qt/locale/bitcoin_lt.ts \
-  qt/locale/bitcoin_lv_LV.ts \
-  qt/locale/bitcoin_mn.ts \
-  qt/locale/bitcoin_ms_MY.ts \
-  qt/locale/bitcoin_nb.ts \
-  qt/locale/bitcoin_nl.ts \
-  qt/locale/bitcoin_pam.ts \
-  qt/locale/bitcoin_pl.ts \
-  qt/locale/bitcoin_pt_BR.ts \
-  qt/locale/bitcoin_pt_PT.ts \
-  qt/locale/bitcoin_ro_RO.ts \
-  qt/locale/bitcoin_ru.ts \
-  qt/locale/bitcoin_sah.ts \
-  qt/locale/bitcoin_sk.ts \
-  qt/locale/bitcoin_sl_SI.ts \
-  qt/locale/bitcoin_sq.ts \
-  qt/locale/bitcoin_sr.ts \
-  qt/locale/bitcoin_sv.ts \
-  qt/locale/bitcoin_th_TH.ts \
-  qt/locale/bitcoin_tr.ts \
-  qt/locale/bitcoin_uk.ts \
-  qt/locale/bitcoin_ur_PK.ts \
-  qt/locale/bitcoin_uz@Cyrl.ts \
-  qt/locale/bitcoin_vi.ts \
-  qt/locale/bitcoin_vi_VN.ts \
-  qt/locale/bitcoin_zh_CN.ts \
-  qt/locale/bitcoin_zh_HK.ts \
-  qt/locale/bitcoin_zh_TW.ts
+  qt/locale/deuscoin_ach.ts \
+  qt/locale/deuscoin_af_ZA.ts \
+  qt/locale/deuscoin_ar.ts \
+  qt/locale/deuscoin_be_BY.ts \
+  qt/locale/deuscoin_bg.ts \
+  qt/locale/deuscoin_bs.ts \
+  qt/locale/deuscoin_ca_ES.ts \
+  qt/locale/deuscoin_ca.ts \
+  qt/locale/deuscoin_ca@valencia.ts \
+  qt/locale/deuscoin_cmn.ts \
+  qt/locale/deuscoin_cs.ts \
+  qt/locale/deuscoin_cy.ts \
+  qt/locale/deuscoin_da.ts \
+  qt/locale/deuscoin_de.ts \
+  qt/locale/deuscoin_el_GR.ts \
+  qt/locale/deuscoin_en.ts \
+  qt/locale/deuscoin_eo.ts \
+  qt/locale/deuscoin_es_CL.ts \
+  qt/locale/deuscoin_es_DO.ts \
+  qt/locale/deuscoin_es_MX.ts \
+  qt/locale/deuscoin_es.ts \
+  qt/locale/deuscoin_es_UY.ts \
+  qt/locale/deuscoin_et.ts \
+  qt/locale/deuscoin_eu_ES.ts \
+  qt/locale/deuscoin_fa_IR.ts \
+  qt/locale/deuscoin_fa.ts \
+  qt/locale/deuscoin_fi.ts \
+  qt/locale/deuscoin_fr_CA.ts \
+  qt/locale/deuscoin_fr.ts \
+  qt/locale/deuscoin_gl.ts \
+  qt/locale/deuscoin_gu_IN.ts \
+  qt/locale/deuscoin_he.ts \
+  qt/locale/deuscoin_hi_IN.ts \
+  qt/locale/deuscoin_hr.ts \
+  qt/locale/deuscoin_hu.ts \
+  qt/locale/deuscoin_id_ID.ts \
+  qt/locale/deuscoin_it.ts \
+  qt/locale/deuscoin_ja.ts \
+  qt/locale/deuscoin_ka.ts \
+  qt/locale/deuscoin_kk_KZ.ts \
+  qt/locale/deuscoin_ko_KR.ts \
+  qt/locale/deuscoin_ky.ts \
+  qt/locale/deuscoin_la.ts \
+  qt/locale/deuscoin_lt.ts \
+  qt/locale/deuscoin_lv_LV.ts \
+  qt/locale/deuscoin_mn.ts \
+  qt/locale/deuscoin_ms_MY.ts \
+  qt/locale/deuscoin_nb.ts \
+  qt/locale/deuscoin_nl.ts \
+  qt/locale/deuscoin_pam.ts \
+  qt/locale/deuscoin_pl.ts \
+  qt/locale/deuscoin_pt_BR.ts \
+  qt/locale/deuscoin_pt_PT.ts \
+  qt/locale/deuscoin_ro_RO.ts \
+  qt/locale/deuscoin_ru.ts \
+  qt/locale/deuscoin_sah.ts \
+  qt/locale/deuscoin_sk.ts \
+  qt/locale/deuscoin_sl_SI.ts \
+  qt/locale/deuscoin_sq.ts \
+  qt/locale/deuscoin_sr.ts \
+  qt/locale/deuscoin_sv.ts \
+  qt/locale/deuscoin_th_TH.ts \
+  qt/locale/deuscoin_tr.ts \
+  qt/locale/deuscoin_uk.ts \
+  qt/locale/deuscoin_ur_PK.ts \
+  qt/locale/deuscoin_uz@Cyrl.ts \
+  qt/locale/deuscoin_vi.ts \
+  qt/locale/deuscoin_vi_VN.ts \
+  qt/locale/deuscoin_zh_CN.ts \
+  qt/locale/deuscoin_zh_HK.ts \
+  qt/locale/deuscoin_zh_TW.ts
 
 QT_FORMS_UI = \
   qt/forms/addressbookpage.ui \
@@ -97,10 +97,10 @@ QT_MOC_CPP = \
   qt/moc_addressbookpage.cpp \
   qt/moc_addresstablemodel.cpp \
   qt/moc_askpassphrasedialog.cpp \
-  qt/moc_bitcoinaddressvalidator.cpp \
-  qt/moc_bitcoinamountfield.cpp \
-  qt/moc_bitcoingui.cpp \
-  qt/moc_bitcoinunits.cpp \
+  qt/moc_deuscoinaddressvalidator.cpp \
+  qt/moc_deuscoinamountfield.cpp \
+  qt/moc_deuscoingui.cpp \
+  qt/moc_deuscoinunits.cpp \
   qt/moc_clientmodel.cpp \
   qt/moc_coincontroldialog.cpp \
   qt/moc_coincontroltreewidget.cpp \
@@ -139,34 +139,34 @@ QT_MOC_CPP = \
   qt/moc_walletmodel.cpp \
   qt/moc_walletview.cpp
 
-BITCOIN_MM = \
+DEUSCOIN_MM = \
   qt/macdockiconhandler.mm \
   qt/macnotificationhandler.mm
 
 QT_MOC = \
-  qt/bitcoin.moc \
-  qt/bitcoinamountfield.moc \
+  qt/deuscoin.moc \
+  qt/deuscoinamountfield.moc \
   qt/intro.moc \
   qt/overviewpage.moc \
   qt/rpcconsole.moc
 
-QT_QRC_CPP = qt/qrc_bitcoin.cpp
-QT_QRC = qt/bitcoin.qrc
-QT_QRC_LOCALE_CPP = qt/qrc_bitcoin_locale.cpp
-QT_QRC_LOCALE = qt/bitcoin_locale.qrc
+QT_QRC_CPP = qt/qrc_deuscoin.cpp
+QT_QRC = qt/deuscoin.qrc
+QT_QRC_LOCALE_CPP = qt/qrc_deuscoin_locale.cpp
+QT_QRC_LOCALE = qt/deuscoin_locale.qrc
 
 PROTOBUF_CC = qt/paymentrequest.pb.cc
 PROTOBUF_H = qt/paymentrequest.pb.h
 PROTOBUF_PROTO = qt/paymentrequest.proto
 
-BITCOIN_QT_H = \
+DEUSCOIN_QT_H = \
   qt/addressbookpage.h \
   qt/addresstablemodel.h \
   qt/askpassphrasedialog.h \
-  qt/bitcoinaddressvalidator.h \
-  qt/bitcoinamountfield.h \
-  qt/bitcoingui.h \
-  qt/bitcoinunits.h \
+  qt/deuscoinaddressvalidator.h \
+  qt/deuscoinamountfield.h \
+  qt/deuscoingui.h \
+  qt/deuscoinunits.h \
   qt/clientmodel.h \
   qt/coincontroldialog.h \
   qt/coincontroltreewidget.h \
@@ -213,10 +213,10 @@ BITCOIN_QT_H = \
 RES_ICONS = \
   qt/res/icons/add.png \
   qt/res/icons/address-book.png \
-  qt/res/icons/bitcoin.ico \
-  qt/res/icons/bitcoin.png \
-  qt/res/icons/bitcoin_testnet.ico \
-  qt/res/icons/bitcoin_testnet.png \
+  qt/res/icons/deuscoin.ico \
+  qt/res/icons/deuscoin.png \
+  qt/res/icons/deuscoin_testnet.ico \
+  qt/res/icons/deuscoin_testnet.png \
   qt/res/icons/clock1.png \
   qt/res/icons/clock2.png \
   qt/res/icons/clock3.png \
@@ -259,11 +259,11 @@ RES_ICONS = \
   qt/res/icons/unit_mbtc.png \
   qt/res/icons/unit_ubtc.png
 
-BITCOIN_QT_CPP = \
-  qt/bitcoinaddressvalidator.cpp \
-  qt/bitcoinamountfield.cpp \
-  qt/bitcoingui.cpp \
-  qt/bitcoinunits.cpp \
+DEUSCOIN_QT_CPP = \
+  qt/deuscoinaddressvalidator.cpp \
+  qt/deuscoinamountfield.cpp \
+  qt/deuscoingui.cpp \
+  qt/deuscoinunits.cpp \
   qt/clientmodel.cpp \
   qt/csvmodelwriter.cpp \
   qt/guiutil.cpp \
@@ -282,7 +282,7 @@ BITCOIN_QT_CPP = \
   qt/winshutdownmonitor.cpp
 
 if ENABLE_WALLET
-BITCOIN_QT_CPP += \
+DEUSCOIN_QT_CPP += \
   qt/addressbookpage.cpp \
   qt/addresstablemodel.cpp \
   qt/askpassphrasedialog.cpp \
@@ -318,18 +318,18 @@ RES_IMAGES = \
 
 RES_MOVIES = $(wildcard qt/res/movies/spinner-*.png)
 
-BITCOIN_RC = qt/res/bitcoin-qt-res.rc
+DEUSCOIN_RC = qt/res/deuscoin-qt-res.rc
 
-BITCOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
+DEUSCOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
   -I$(builddir)/qt/forms
 
-qt_libbitcoinqt_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+qt_libdeuscoinqt_a_CPPFLAGS = $(DEUSCOIN_INCLUDES) $(DEUSCOIN_QT_INCLUDES) \
   $(QT_INCLUDES) $(QT_DBUS_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
 
-qt_libbitcoinqt_a_SOURCES = $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(QT_FORMS_UI) \
+qt_libdeuscoinqt_a_SOURCES = $(DEUSCOIN_QT_CPP) $(DEUSCOIN_QT_H) $(QT_FORMS_UI) \
   $(QT_QRC) $(QT_QRC_LOCALE) $(QT_TS) $(PROTOBUF_PROTO) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES)
 
-nodist_qt_libbitcoinqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
+nodist_qt_libdeuscoinqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
   $(PROTOBUF_H) $(QT_QRC_CPP) $(QT_QRC_LOCALE_CPP)
 
 # forms/foo.h -> forms/ui_foo.h
@@ -338,67 +338,67 @@ QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:
 # Most files will depend on the forms and moc files as includes. Generate them
 # before anything else.
 $(QT_MOC): $(QT_FORMS_H)
-$(qt_libbitcoinqt_a_OBJECTS) $(qt_bitcoin_qt_OBJECTS) : | $(QT_MOC)
+$(qt_libdeuscoinqt_a_OBJECTS) $(qt_deuscoin_qt_OBJECTS) : | $(QT_MOC)
 
 #Generating these with a half-written protobuf header leads to wacky results.
 #This makes sure it's done.
 $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
-# bitcoin-qt binary #
-qt_bitcoin_qt_CPPFLAGS = $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+# deuscoin-qt binary #
+qt_deuscoin_qt_CPPFLAGS = $(DEUSCOIN_INCLUDES) $(DEUSCOIN_QT_INCLUDES) \
   $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
 
-qt_bitcoin_qt_SOURCES = qt/bitcoin.cpp
+qt_deuscoin_qt_SOURCES = qt/deuscoin.cpp
 if TARGET_DARWIN
-  qt_bitcoin_qt_SOURCES += $(BITCOIN_MM)
+  qt_deuscoin_qt_SOURCES += $(DEUSCOIN_MM)
 endif
 if TARGET_WINDOWS
-  qt_bitcoin_qt_SOURCES += $(BITCOIN_RC)
+  qt_deuscoin_qt_SOURCES += $(DEUSCOIN_RC)
 endif
-qt_bitcoin_qt_LDADD = qt/libbitcoinqt.a $(LIBBITCOIN_SERVER)
+qt_deuscoin_qt_LDADD = qt/libdeuscoinqt.a $(LIBDEUSCOIN_SERVER)
 if ENABLE_WALLET
-qt_bitcoin_qt_LDADD += $(LIBBITCOIN_WALLET)
+qt_deuscoin_qt_LDADD += $(LIBDEUSCOIN_WALLET)
 endif
-qt_bitcoin_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBBITCOIN_UNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
+qt_deuscoin_qt_LDADD += $(LIBDEUSCOIN_CLI) $(LIBDEUSCOIN_COMMON) $(LIBDEUSCOIN_UTIL) $(LIBDEUSCOIN_CRYPTO) $(LIBDEUSCOIN_UNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS)
 if USE_LIBSECP256K1
-  qt_bitcoin_qt_LDADD += secp256k1/libsecp256k1.la
+  qt_deuscoin_qt_LDADD += secp256k1/libsecp256k1.la
 endif
-qt_bitcoin_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS)
+qt_deuscoin_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS)
 
 #locale/foo.ts -> locale/foo.qm
 QT_QM=$(QT_TS:.ts=.qm)
 
 .SECONDARY: $(QT_QM)
 
-qt/bitcoinstrings.cpp: $(libbitcoin_server_a_SOURCES) $(libbitcoin_wallet_a_SOURCES)
+qt/deuscoinstrings.cpp: $(libdeuscoin_server_a_SOURCES) $(libdeuscoin_wallet_a_SOURCES)
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) ../share/qt/extract_strings_qt.py $^
 
-translate: qt/bitcoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
+translate: qt/deuscoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(DEUSCOIN_QT_CPP) $(DEUSCOIN_QT_H) $(DEUSCOIN_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/bitcoin_en.ts
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/deuscoin_en.ts
 
 $(QT_QRC_LOCALE_CPP): $(QT_QRC_LOCALE) $(QT_QM)
 	@test -f $(RCC)
 	@test -f $(@D)/$(<F) || cp -f $< $(@D)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name bitcoin_locale $(@D)/$(<F) | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name deuscoin_locale $(@D)/$(<F) | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
 $(QT_QRC_CPP): $(QT_QRC) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES) $(PROTOBUF_H)
 	@test -f $(RCC)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name bitcoin $< | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name deuscoin $< | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
-CLEAN_QT = $(nodist_qt_libbitcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno
+CLEAN_QT = $(nodist_qt_libdeuscoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno
 
 CLEANFILES += $(CLEAN_QT)
 
-bitcoin_qt_clean: FORCE
-	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_bitcoin_qt_OBJECTS) qt/bitcoin-qt$(EXEEXT) $(LIBBITCOINQT)
+deuscoin_qt_clean: FORCE
+	rm -f $(CLEAN_QT) $(qt_libdeuscoinqt_a_OBJECTS) $(qt_deuscoin_qt_OBJECTS) qt/deuscoin-qt$(EXEEXT) $(LIBDEUSCOINQT)
 
-bitcoin_qt : qt/bitcoin-qt$(EXEEXT)
+deuscoin_qt : qt/deuscoin-qt$(EXEEXT)
 
 ui_%.h: %.ui
 	@test -f $(UIC)

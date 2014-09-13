@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The Bitcoin developers
+// Copyright (c) 2009-2014 The Bitcoin Core and Deuscoin Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef _BITCOIN_COMPAT_H
-#define _BITCOIN_COMPAT_H
+#ifndef _DEUSCOIN_COMPAT_H
+#define _DEUSCOIN_COMPAT_H
 
 #ifdef WIN32
 #ifdef _WIN32_WINNT
@@ -84,4 +84,4 @@ typedef u_int SOCKET;
 #define THREAD_PRIORITY_ABOVE_NORMAL    (-2)
 #endif
 
-#endif // _BITCOIN_COMPAT_H
+#endif // _DEUSCOIN_COMPAT_H

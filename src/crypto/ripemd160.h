@@ -1,9 +1,9 @@
-// Copyright (c) 2014 The Bitcoin developers
+// Copyright (c) 2014 The Bitcoin Core and Deuscoin Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_RIPEMD160_H
-#define BITCOIN_RIPEMD160_H
+#ifndef DEUSCOIN_RIPEMD160_H
+#define DEUSCOIN_RIPEMD160_H
 
 #include <stdint.h>
 #include <stdlib.h>

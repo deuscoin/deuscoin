@@ -1,9 +1,9 @@
-// Copyright (c) 2012-2013 The Bitcoin developers
+// Copyright (c) 2012-2013 The Bitcoin Core and Deuscoin Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_LEVELDBWRAPPER_H
-#define BITCOIN_LEVELDBWRAPPER_H
+#ifndef DEUSCOIN_LEVELDBWRAPPER_H
+#define DEUSCOIN_LEVELDBWRAPPER_H
 
 #include "serialize.h"
 #include "util.h"
@@ -152,4 +152,4 @@ public:
     }
 };
 
-#endif // BITCOIN_LEVELDBWRAPPER_H
+#endif // DEUSCOIN_LEVELDBWRAPPER_H

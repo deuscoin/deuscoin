@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2013 The Bitcoin developers
+// Copyright (c) 2009-2013 The Bitcoin Core and Deuscoin Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_TXMEMPOOL_H
-#define BITCOIN_TXMEMPOOL_H
+#ifndef DEUSCOIN_TXMEMPOOL_H
+#define DEUSCOIN_TXMEMPOOL_H
 
 #include <list>
 
@@ -148,4 +148,4 @@ public:
     bool HaveCoins(const uint256 &txid) const;
 };
 
-#endif // BITCOIN_TXMEMPOOL_H
+#endif // DEUSCOIN_TXMEMPOOL_H

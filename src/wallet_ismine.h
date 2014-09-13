@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2013 The Bitcoin developers
+// Copyright (c) 2009-2013 The Bitcoin Core and Deuscoin Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef H_BITCOIN_WALLET_ISMINE
-#define H_BITCOIN_WALLET_ISMINE
+#ifndef H_DEUSCOIN_WALLET_ISMINE
+#define H_DEUSCOIN_WALLET_ISMINE
 
 #include "key.h"
 #include "script/script.h"
@@ -25,4 +25,4 @@ typedef uint8_t isminefilter;
 isminetype IsMine(const CKeyStore& keystore, const CScript& scriptPubKey);
 isminetype IsMine(const CKeyStore& keystore, const CTxDestination& dest);
 
-#endif // H_BITCOIN_SCRIPT
+#endif // H_DEUSCOIN_SCRIPT

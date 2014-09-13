@@ -1,9 +1,9 @@
-// Copyright (c) 2014 The Bitcoin developers
+// Copyright (c) 2014 The Bitcoin Core and Deuscoin Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_TIMEDATA_H
-#define BITCOIN_TIMEDATA_H
+#ifndef DEUSCOIN_TIMEDATA_H
+#define DEUSCOIN_TIMEDATA_H
 
 #include <stdint.h>
 #include <vector>
@@ -73,4 +73,4 @@ int64_t GetTimeOffset();
 int64_t GetAdjustedTime();
 void AddTimeData(const CNetAddr& ip, int64_t nTime);
 
-#endif // BITCOIN_TIMEDATA_H
+#endif // DEUSCOIN_TIMEDATA_H

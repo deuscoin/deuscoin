@@ -1,9 +1,9 @@
-// Copyright (c) 2014 The Bitcoin developers
+// Copyright (c) 2014 The Bitcoin Core and Deuscoin Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_SHA1_H
-#define BITCOIN_SHA1_H
+#ifndef DEUSCOIN_SHA1_H
+#define DEUSCOIN_SHA1_H
 
 #include <stdint.h>
 #include <stdlib.h>

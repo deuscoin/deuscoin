@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2013 The Bitcoin developers
+// Copyright (c) 2009-2013 The Bitcoin Core and Deuscoin Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef H_BITCOIN_SCRIPT_STANDARD
-#define H_BITCOIN_SCRIPT_STANDARD
+#ifndef H_DEUSCOIN_SCRIPT_STANDARD
+#define H_DEUSCOIN_SCRIPT_STANDARD
 
 #include "script/script.h"
 #include "script/interpreter.h"

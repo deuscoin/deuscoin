@@ -1,13 +1,13 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The Bitcoin developers
+// Copyright (c) 2009-2014 The Bitcoin Core and Deuscoin Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 /**
  * Utilities for converting data from/to strings.
  */
-#ifndef BITCOIN_UTILSTRENCODINGS_H
-#define BITCOIN_UTILSTRENCODINGS_H
+#ifndef DEUSCOIN_UTILSTRENCODINGS_H
+#define DEUSCOIN_UTILSTRENCODINGS_H
 
 #include <stdint.h>
 #include <string>
@@ -94,4 +94,4 @@ bool TimingResistantEqual(const T& a, const T& b)
     return accumulator == 0;
 }
 
-#endif // BITCOIN_UTILSTRENCODINGS_H
+#endif // DEUSCOIN_UTILSTRENCODINGS_H

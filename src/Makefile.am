@@ -20,48 +20,48 @@ $(LIBLEVELDB) $(LIBMEMENV):
           OPT="$(CXXFLAGS) $(CPPFLAGS)"
 endif
 
-BITCOIN_CONFIG_INCLUDES=-I$(builddir)/config
-BITCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
+DEUSCOIN_CONFIG_INCLUDES=-I$(builddir)/config
+DEUSCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BOOST_CPPFLAGS) $(LEVELDB_CPPFLAGS) $(CRYPTO_CFLAGS) $(SSL_CFLAGS)
 
 if USE_LIBSECP256K1
-BITCOIN_INCLUDES += -I$(srcdir)/secp256k1/include
+DEUSCOIN_INCLUDES += -I$(srcdir)/secp256k1/include
 endif
 
-LIBBITCOIN_SERVER=libbitcoin_server.a
-LIBBITCOIN_WALLET=libbitcoin_wallet.a
-LIBBITCOIN_COMMON=libbitcoin_common.a
-LIBBITCOIN_CLI=libbitcoin_cli.a
-LIBBITCOIN_UTIL=libbitcoin_util.a
-LIBBITCOIN_CRYPTO=crypto/libbitcoin_crypto.a
-LIBBITCOIN_UNIVALUE=univalue/libbitcoin_univalue.a
-LIBBITCOINQT=qt/libbitcoinqt.a
+LIBDEUSCOIN_SERVER=libdeuscoin_server.a
+LIBDEUSCOIN_WALLET=libdeuscoin_wallet.a
+LIBDEUSCOIN_COMMON=libdeuscoin_common.a
+LIBDEUSCOIN_CLI=libdeuscoin_cli.a
+LIBDEUSCOIN_UTIL=libdeuscoin_util.a
+LIBDEUSCOIN_CRYPTO=crypto/libdeuscoin_crypto.a
+LIBDEUSCOIN_UNIVALUE=univalue/libdeuscoin_univalue.a
+LIBDEUSCOINQT=qt/libdeuscoinqt.a
 
 noinst_LIBRARIES = \
-  libbitcoin_server.a \
-  libbitcoin_common.a \
-  libbitcoin_cli.a \
-  libbitcoin_util.a \
-  univalue/libbitcoin_univalue.a \
-  crypto/libbitcoin_crypto.a
+  libdeuscoin_server.a \
+  libdeuscoin_common.a \
+  libdeuscoin_cli.a \
+  libdeuscoin_util.a \
+  univalue/libdeuscoin_univalue.a \
+  crypto/libdeuscoin_crypto.a
 if ENABLE_WALLET
-BITCOIN_INCLUDES += $(BDB_CPPFLAGS)
-noinst_LIBRARIES += libbitcoin_wallet.a
+DEUSCOIN_INCLUDES += $(BDB_CPPFLAGS)
+noinst_LIBRARIES += libdeuscoin_wallet.a
 endif
 
 bin_PROGRAMS =
 TESTS =
 
-if BUILD_BITCOIND
-  bin_PROGRAMS += bitcoind
+if BUILD_DEUSCOIND
+  bin_PROGRAMS += deuscoind
 endif
 
-if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += bitcoin-cli bitcoin-tx
+if BUILD_DEUSCOIN_UTILS
+  bin_PROGRAMS += deuscoin-cli deuscoin-tx
 endif
 
 .PHONY: FORCE
-# bitcoin core #
-BITCOIN_CORE_H = \
+# deuscoin core #
+DEUSCOIN_CORE_H = \
   addrman.h \
   alert.h \
   allocators.h \
@@ -137,11 +137,11 @@ obj/build.h: FORCE
 	@$(MKDIR_P) $(builddir)/obj
 	@$(top_srcdir)/share/genbuild.sh $(abs_top_builddir)/src/obj/build.h \
 	  $(abs_top_srcdir)
-libbitcoin_util_a-version.$(OBJEXT): obj/build.h
+libdeuscoin_util_a-version.$(OBJEXT): obj/build.h
 
-# server: shared between bitcoind and bitcoin-qt
-libbitcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS)
-libbitcoin_server_a_SOURCES = \
+# server: shared between deuscoind and deuscoin-qt
+libdeuscoin_server_a_CPPFLAGS = $(DEUSCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS)
+libdeuscoin_server_a_SOURCES = \
   addrman.cpp \
   alert.cpp \
   bloom.cpp \
@@ -163,12 +163,12 @@ libbitcoin_server_a_SOURCES = \
   txdb.cpp \
   txmempool.cpp \
   $(JSON_H) \
-  $(BITCOIN_CORE_H)
+  $(DEUSCOIN_CORE_H)
 
-# wallet: shared between bitcoind and bitcoin-qt, but only linked
+# wallet: shared between deuscoind and deuscoin-qt, but only linked
 # when wallet enabled
-libbitcoin_wallet_a_CPPFLAGS = $(BITCOIN_INCLUDES)
-libbitcoin_wallet_a_SOURCES = \
+libdeuscoin_wallet_a_CPPFLAGS = $(DEUSCOIN_INCLUDES)
+libdeuscoin_wallet_a_SOURCES = \
   db.cpp \
   crypter.cpp \
   rpcdump.cpp \
@@ -176,11 +176,11 @@ libbitcoin_wallet_a_SOURCES = \
   wallet_ismine.cpp \
   wallet.cpp \
   walletdb.cpp \
-  $(BITCOIN_CORE_H)
+  $(DEUSCOIN_CORE_H)
 
 # crypto primitives library
-crypto_libbitcoin_crypto_a_CPPFLAGS = $(BITCOIN_CONFIG_INCLUDES)
-crypto_libbitcoin_crypto_a_SOURCES = \
+crypto_libdeuscoin_crypto_a_CPPFLAGS = $(DEUSCOIN_CONFIG_INCLUDES)
+crypto_libdeuscoin_crypto_a_SOURCES = \
   crypto/sha1.cpp \
   crypto/sha2.cpp \
   crypto/ripemd160.cpp \
@@ -190,16 +190,16 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/ripemd160.h
 
 # univalue JSON library
-univalue_libbitcoin_univalue_a_SOURCES = \
+univalue_libdeuscoin_univalue_a_SOURCES = \
   univalue/univalue.cpp \
   univalue/univalue_read.cpp \
   univalue/univalue_write.cpp \
   univalue/univalue_escapes.h \
   univalue/univalue.h
 
-# common: shared between bitcoind, and bitcoin-qt and non-server tools
-libbitcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
-libbitcoin_common_a_SOURCES = \
+# common: shared between deuscoind, and deuscoin-qt and non-server tools
+libdeuscoin_common_a_CPPFLAGS = $(DEUSCOIN_INCLUDES)
+libdeuscoin_common_a_SOURCES = \
   allocators.cpp \
   base58.cpp \
   chainparams.cpp \
@@ -217,13 +217,13 @@ libbitcoin_common_a_SOURCES = \
   script/script.cpp \
   script/sign.cpp \
   script/standard.cpp \
-  $(BITCOIN_CORE_H)
+  $(DEUSCOIN_CORE_H)
 
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
-libbitcoin_util_a_CPPFLAGS = $(BITCOIN_INCLUDES)
-libbitcoin_util_a_SOURCES = \
+libdeuscoin_util_a_CPPFLAGS = $(DEUSCOIN_INCLUDES)
+libdeuscoin_util_a_SOURCES = \
   compat/glibc_sanity.cpp \
   compat/glibcxx_sanity.cpp \
   chainparamsbase.cpp \
@@ -236,92 +236,92 @@ libbitcoin_util_a_SOURCES = \
   utilmoneystr.cpp \
   utiltime.cpp \
   version.cpp \
-  $(BITCOIN_CORE_H)
+  $(DEUSCOIN_CORE_H)
 
 if GLIBC_BACK_COMPAT
-libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
-libbitcoin_util_a_SOURCES += compat/glibcxx_compat.cpp
+libdeuscoin_util_a_SOURCES += compat/glibc_compat.cpp
+libdeuscoin_util_a_SOURCES += compat/glibcxx_compat.cpp
 endif
 
-# cli: shared between bitcoin-cli and bitcoin-qt
-libbitcoin_cli_a_CPPFLAGS = $(BITCOIN_INCLUDES)
-libbitcoin_cli_a_SOURCES = \
+# cli: shared between deuscoin-cli and deuscoin-qt
+libdeuscoin_cli_a_CPPFLAGS = $(DEUSCOIN_INCLUDES)
+libdeuscoin_cli_a_SOURCES = \
   rpcclient.cpp \
-  $(BITCOIN_CORE_H)
+  $(DEUSCOIN_CORE_H)
 
-nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
+nodist_libdeuscoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
-# bitcoind binary #
-bitcoind_LDADD = \
-  $(LIBBITCOIN_SERVER) \
-  $(LIBBITCOIN_COMMON) \
-  $(LIBBITCOIN_UNIVALUE) \
-  $(LIBBITCOIN_UTIL) \
-  $(LIBBITCOIN_CRYPTO) \
+# deuscoind binary #
+deuscoind_LDADD = \
+  $(LIBDEUSCOIN_SERVER) \
+  $(LIBDEUSCOIN_COMMON) \
+  $(LIBDEUSCOIN_UNIVALUE) \
+  $(LIBDEUSCOIN_UTIL) \
+  $(LIBDEUSCOIN_CRYPTO) \
   $(LIBLEVELDB) \
   $(LIBMEMENV)
 
 if USE_LIBSECP256K1
-  bitcoind_LDADD += secp256k1/libsecp256k1.la
+  deuscoind_LDADD += secp256k1/libsecp256k1.la
 endif
 
 if ENABLE_WALLET
-bitcoind_LDADD += libbitcoin_wallet.a
+deuscoind_LDADD += libdeuscoin_wallet.a
 endif
-bitcoind_SOURCES = bitcoind.cpp
+deuscoind_SOURCES = deuscoind.cpp
 #
 
 if TARGET_WINDOWS
-bitcoind_SOURCES += bitcoind-res.rc
+deuscoind_SOURCES += deuscoind-res.rc
 endif
 
-bitcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS)
-bitcoind_CPPFLAGS = $(BITCOIN_INCLUDES)
-bitcoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS)
+deuscoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS)
+deuscoind_CPPFLAGS = $(DEUSCOIN_INCLUDES)
+deuscoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS)
 
-# bitcoin-cli binary #
-bitcoin_cli_LDADD = \
-  $(LIBBITCOIN_CLI) \
-  $(LIBBITCOIN_COMMON) \
-  $(LIBBITCOIN_UTIL) \
-  $(LIBBITCOIN_CRYPTO) \
+# deuscoin-cli binary #
+deuscoin_cli_LDADD = \
+  $(LIBDEUSCOIN_CLI) \
+  $(LIBDEUSCOIN_COMMON) \
+  $(LIBDEUSCOIN_UTIL) \
+  $(LIBDEUSCOIN_CRYPTO) \
   $(BOOST_LIBS) \
   $(SSL_LIBS) \
   $(CRYPTO_LIBS)
 
-bitcoin_cli_SOURCES = \
-  bitcoin-cli.cpp
+deuscoin_cli_SOURCES = \
+  deuscoin-cli.cpp
 
 if USE_LIBSECP256K1
-  bitcoin_cli_LDADD += secp256k1/libsecp256k1.la
+  deuscoin_cli_LDADD += secp256k1/libsecp256k1.la
 endif
-bitcoin_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
+deuscoin_cli_CPPFLAGS = $(DEUSCOIN_INCLUDES)
 #
 
-# bitcoin-tx binary #
-bitcoin_tx_LDADD = \
-  $(LIBBITCOIN_UNIVALUE) \
-  $(LIBBITCOIN_COMMON) \
-  $(LIBBITCOIN_UTIL) \
-  $(LIBBITCOIN_CRYPTO)
+# deuscoin-tx binary #
+deuscoin_tx_LDADD = \
+  $(LIBDEUSCOIN_UNIVALUE) \
+  $(LIBDEUSCOIN_COMMON) \
+  $(LIBDEUSCOIN_UTIL) \
+  $(LIBDEUSCOIN_CRYPTO)
 
 if USE_LIBSECP256K1
-  bitcoin_tx_LDADD += secp256k1/libsecp256k1.la
+  deuscoin_tx_LDADD += secp256k1/libsecp256k1.la
 endif
 
-  bitcoin_tx_LDADD += $(BOOST_LIBS) \
+  deuscoin_tx_LDADD += $(BOOST_LIBS) \
   $(SSL_LIBS) \
   $(CRYPTO_LIBS)
-bitcoin_tx_SOURCES = bitcoin-tx.cpp
-bitcoin_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
+deuscoin_tx_SOURCES = deuscoin-tx.cpp
+deuscoin_tx_CPPFLAGS = $(DEUSCOIN_INCLUDES)
 #
-bitcoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS)
+deuscoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS)
 
 if TARGET_WINDOWS
-bitcoin_cli_SOURCES += bitcoin-cli-res.rc
+deuscoin_cli_SOURCES += deuscoin-cli-res.rc
 endif
-bitcoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS)
+deuscoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS)
 
 CLEANFILES = leveldb/libleveldb.a leveldb/libmemenv.a *.gcda *.gcno
 
