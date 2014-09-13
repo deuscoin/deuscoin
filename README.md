@@ -20,7 +20,7 @@ information or see http://opensource.org/licenses/MIT.
 Building Deuscoin
 -------------------
 
-As the software sources are not heavily modified, most of the Bitcoin documentation still applies, so the docs directory contains the original documentation. Also included is a custom taylored version of [how to build Deuscoin](blob/master/doc/building-deuscoin.md).
+As the software sources are not heavily modified, most of the Bitcoin documentation still applies, so the docs directory contains the original documentation. Also included is a custom taylored version of [how to build Deuscoin](doc/building-deuscoin.md).
 
 Development process
 -------------------
