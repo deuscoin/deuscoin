@@ -1,6 +1,7 @@
 Deuscoin Core
 =====================
 
+The [Deuscoin official building guide](doc/building-deuscoin.md) is the same process used in releasing official builds of Deuscoin.
 
 Setup
 ---------------------
