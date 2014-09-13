@@ -129,11 +129,11 @@ Let's build Deuscoin now.
 	popd
 
 
-	./bin/gbuild --commit bitcoin=HEAD ../bitcoin/contrib/gitian-descriptors/gitian-win.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-win --destination ../gitian.sigs/ ../bitcoin/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gbuild --commit deuscoin=HEAD ../deuscoin/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION}-win --destination ../gitian.sigs/ ../deuscoin/contrib/gitian-descriptors/gitian-win.yml
 	pushd build/out
-	zip -r bitcoin-${VERSION}-win-gitian.zip *
-	mv bitcoin-${VERSION}-win-gitian.zip ../../../
+	zip -r deuscoin-${VERSION}-win-gitian.zip *
+	mv deuscoin-${VERSION}-win-gitian.zip ../../../
 	popd
 
 
