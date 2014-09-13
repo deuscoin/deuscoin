@@ -11,6 +11,18 @@ Deuscoin focuses on new features via a PHP interface instead of the software beh
 For more information, as well as an immediately useable, binary version of
 the Deuscoin Core software, see http://deuscoin.tk.
 
+Where is Deuscoun-QT?
+---------------------
+
+As the whole purpose of Dueuscoin is to focus exclusivly on providing a feature packed PHP based wallet, the QT client isn't used. The PHP wallet takes the place of the QT interface you're used to seeing and offers you a nicer, clean-cut interface with the same features and then some. You can still build the QT binaries from these sources, but QT is not included in the official binary releases. If there's enough of a demand for them, they may appear in the official binary releases at a later date.
+
+Why is it based on Bitcoin directly?
+------------------------------------
+
+Bitcoin is the first crypto-coin ever to be developed and has massive amounts of exposure. With that kind of exposure and with the market full of hackers, Bitcoin's code has been tried, tested, and used by millions of people. Bitcoin is activly developed and under constant security scrutiny, so it makes sense to clone Bitcoin directly. The Bitcoin Binaries are easily updated and deployed as a Deuscoin upgrade and they won't take away from the time required to focus on developing new PHP wallet features.
+
+As an added bonus, Bitcoin is a Sha-256 based PoW coin, but the difficulty of the coin is astoundingly high. Deuscoin offers miners who would otherwise be loosing money mining Bitcoin, the opportunity to take part in our exciting new project while securing the Deuscoin network and making a nice profit. So, bring out your old mining rigs and mine Deuscoin!
+
 License
 -------
 
