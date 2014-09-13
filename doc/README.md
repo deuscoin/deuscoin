@@ -1,4 +1,4 @@
-Bitcoin 0.9.99 BETA
+Deuscoin Core
 =====================
 
 Copyright (c) 2009-2014 Bitcoin Developers
