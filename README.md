@@ -11,7 +11,7 @@ Deuscoin focuses on new features via a PHP interface instead of the software beh
 For more information, as well as an immediately useable, binary version of
 the Deuscoin Core software, see http://deuscoin.tk.
 
-Where is Deuscoun-QT?
+Where is Deuscoin-QT?
 ---------------------
 
 As the whole purpose of Dueuscoin is to focus exclusivly on providing a feature packed PHP based wallet, the QT client isn't used. The PHP wallet takes the place of the QT interface you're used to seeing and offers you a nicer, clean-cut interface with the same features and then some. You can still build the QT binaries from these sources, but QT is not included in the official binary releases. If there's enough of a demand for them, they may appear in the official binary releases at a later date.
