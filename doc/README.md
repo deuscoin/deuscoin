@@ -1,8 +1,6 @@
 Deuscoin Core
 =====================
 
-Copyright (c) 2009-2014 Bitcoin Developers
-
 
 Setup
 ---------------------
