@@ -15,3 +15,7 @@ Copies the graphics from /tools/graphics into the /src/qt/res tree
 **production-release.sh**
 
 Switch the build into production release more easily.
+
+**change-client-name.sh**
+
+Change the name of the client / user agent.
