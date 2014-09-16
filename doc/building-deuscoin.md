@@ -5,7 +5,7 @@ Building Deuscoin with Gitian
 
 Virtualbox running an instance of Ubuntu 12.04.4 64Bit (The version must be exact or you'll have issues!)
 
-**Building**
+**Building - Rig Setup**
 
 Follow the setup for Ubuntu in Virtualbox as described in the [Bitcoin Documentation](https://github.com/bitcoin/bitcoin/blob/master/doc/gitian-building.md)
 
@@ -28,6 +28,8 @@ Once you're finished, save up and run the following to get online:
 
 From now on you can use PuTTY to make it easier by copy and pasting stuff. Now we'll add the required packages.
 
+**Gitian Setup**
+
 	sudo apt-get install git ruby1.9.1 apt-cacher-ng python-vm-builder qemu-utils debootstrap lxc python-cheetah parted kpartx bridge-utils
 
 This next part sets up your environment for Gitian. You'll need to reboot for the changes to take effect.
@@ -45,6 +47,8 @@ Now let's grab Gitian Builder and Deuscoin.
 	git clone https://github.com/devrandom/gitian-builder.git
 	git clone https://github.com/deuscoin/deuscoin.git
 
+**Build Gitian's Templates**
+
 Gitian Builder needs to build the template files for it to build with. This will take a few minutes, so go grab some coffee and watch TV... Yeah, that or read ahead.
 
 	cd gitian-builder
@@ -52,6 +56,10 @@ Gitian Builder needs to build the template files for it to build with. This will
 	bin/make-base-vm --lxc --arch amd64 --suite precise
 
 There will be a bunch of warnings, but you can ignore them.
+
+**Prepare the Dependencies for Building Deuscoin**
+
+This section only needs to be completed once.
 
 Now we'll be following the [Bitcoin Release Process](https://github.com/bitcoin/bitcoin/blob/master/doc/release-process.md) loosely. Make the directory we'll be downloading everything to.
 
@@ -110,6 +118,7 @@ Now we build the dependencies for Deuscoin on Gitian. Ignore the ominous "stdin:
 	./bin/gbuild ../deuscoin/contrib/gitian-descriptors/gitian-osx-qt.yml
 	mv build/out/osx-*.tar.gz inputs/
 
+**Building Deuscoin**
 
 Let's build Deuscoin now.
 
