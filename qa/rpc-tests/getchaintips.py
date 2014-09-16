@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Copyright (c) 2014 The Bitcoin Core developers
+# Copyright (c) 2014 The Bitcoin Core and Deuscoin Core developers
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,10 +8,10 @@
 # Since the test framework does not generate orphan blocks, we can
 # unfortunately not check for them!
 
-from test_framework import BitcoinTestFramework
+from test_framework import DeuscoinTestFramework
 from util import assert_equal
 
-class GetChainTipsTest (BitcoinTestFramework):
+class GetChainTipsTest (DeuscoinTestFramework):
 
     def run_test (self, nodes):
         res = nodes[0].getchaintips ()

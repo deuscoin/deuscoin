@@ -10,8 +10,8 @@ fi
 
 set -f
 
-BITCOIND=${1}/bitcoind
-CLI=${1}/bitcoin-cli
+DEUSCOIND=${1}/deuscoind
+CLI=${1}/deuscoin-cli
 
 DIR="${BASH_SOURCE%/*}"
 SENDANDWAIT="${DIR}/send.sh"
@@ -23,13 +23,13 @@ D=$(mktemp -d test.XXXXX)
 D1=${D}/node1
 CreateDataDir "$D1" port=11000 rpcport=11001
 B1ARGS="-datadir=$D1"
-$BITCOIND $B1ARGS &
+$DEUSCOIND $B1ARGS &
 B1PID=$!
 
 D2=${D}/node2
 CreateDataDir "$D2" port=11010 rpcport=11011
 B2ARGS="-datadir=$D2"
-$BITCOIND $B2ARGS &
+$DEUSCOIND $B2ARGS &
 B2PID=$!
 
 function CleanUp {
@@ -105,9 +105,9 @@ $CLI $B1ARGS stop > /dev/null 2>&1
 wait $B1PID
 
 # restart nodes with -zapwallettxes
-$BITCOIND -zapwallettxes=1 $B1ARGS &
+$DEUSCOIND -zapwallettxes=1 $B1ARGS &
 B1PID=$!
-$BITCOIND -zapwallettxes=2 $B2ARGS &
+$DEUSCOIND -zapwallettxes=2 $B2ARGS &
 B2PID=$!
 
 # check if confirmed transactions are there

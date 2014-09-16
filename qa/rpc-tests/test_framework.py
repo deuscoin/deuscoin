@@ -1,24 +1,24 @@
 #!/usr/bin/env python
-# Copyright (c) 2014 The Bitcoin Core developers
+# Copyright (c) 2014 The Bitcoin Core and Deuscoin Core developers
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 # Base class for RPC testing
 
-# Add python-bitcoinrpc to module search path:
+# Add python-deuscoinrpc to module search path:
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "python-bitcoinrpc"))
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "python-deuscoinrpc"))
 
 import shutil
 import tempfile
 import traceback
 
-from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
+from deuscoinrpc.authproxy import AuthServiceProxy, JSONRPCException
 from util import *
 
 
-class BitcoinTestFramework(object):
+class DeuscoinTestFramework(object):
 
     # These may be over-ridden by subclasses:
     def run_test(self, nodes):
@@ -43,9 +43,9 @@ class BitcoinTestFramework(object):
 
         parser = optparse.OptionParser(usage="%prog [options]")
         parser.add_option("--nocleanup", dest="nocleanup", default=False, action="store_true",
-                          help="Leave bitcoinds and test.* datadir on exit or error")
+                          help="Leave deuscoinds and test.* datadir on exit or error")
         parser.add_option("--srcdir", dest="srcdir", default="../../src",
-                          help="Source directory containing bitcoind/bitcoin-cli (default: %default%)")
+                          help="Source directory containing deuscoind/deuscoin-cli (default: %default%)")
         parser.add_option("--tmpdir", dest="tmpdir", default=tempfile.mkdtemp(prefix="test"),
                           help="Root directory for datadirs")
         self.add_options(parser)
@@ -81,7 +81,7 @@ class BitcoinTestFramework(object):
         if not self.options.nocleanup:
             print("Cleaning up")
             stop_nodes(nodes)
-            wait_bitcoinds()
+            wait_deuscoinds()
             shutil.rmtree(self.options.tmpdir)
 
         if success:

@@ -1,12 +1,12 @@
 #!/usr/bin/env python
-# Copyright (c) 2014 The Bitcoin Core developers
+# Copyright (c) 2014 The Bitcoin Core and Deuscoin Core developers
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 # Exercise the listtransactions API
 
-from test_framework import BitcoinTestFramework
-from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
+from test_framework import DeuscoinTestFramework
+from deuscoinrpc.authproxy import AuthServiceProxy, JSONRPCException
 from util import *
 
 
@@ -46,7 +46,7 @@ class LongpollThread(threading.Thread):
     def run(self):
         self.node.getblocktemplate({'longpollid':self.longpollid})
 
-class GetBlockTemplateTest(BitcoinTestFramework):
+class GetBlockTemplateTest(DeuscoinTestFramework):
     '''
     Test longpolling with getblocktemplate.
     '''

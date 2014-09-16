@@ -255,9 +255,9 @@ RES_ICONS = \
   qt/res/icons/tx_input.png \
   qt/res/icons/tx_output.png \
   qt/res/icons/tx_mined.png \
-  qt/res/icons/unit_btc.png \
-  qt/res/icons/unit_mbtc.png \
-  qt/res/icons/unit_ubtc.png
+  qt/res/icons/unit_deus.png \
+  qt/res/icons/unit_mdeus.png \
+  qt/res/icons/unit_udeus.png
 
 DEUSCOIN_QT_CPP = \
   qt/deuscoinaddressvalidator.cpp \

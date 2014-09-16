@@ -1,12 +1,12 @@
 #!/usr/bin/env python
-# Copyright (c) 2014 The Bitcoin Core developers
+# Copyright (c) 2014 The Bitcoin Core and Deuscoin Core developers
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 # Exercise the listtransactions API
 
-from test_framework import BitcoinTestFramework
-from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
+from test_framework import DeuscoinTestFramework
+from deuscoinrpc.authproxy import AuthServiceProxy, JSONRPCException
 from util import *
 
 
@@ -31,7 +31,7 @@ def check_array_result(object_array, to_match, expected):
     if num_matched == 0:
         raise AssertionError("No objects matched %s"%(str(to_match)))
 
-class ListTransactionsTest(BitcoinTestFramework):
+class ListTransactionsTest(DeuscoinTestFramework):
 
     def run_test(self, nodes):
         # Simple send, 0 to 1:

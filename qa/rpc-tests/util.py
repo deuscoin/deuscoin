@@ -1,14 +1,14 @@
-# Copyright (c) 2014 The Bitcoin Core developers
+# Copyright (c) 2014 The Bitcoin Core and Deuscoin Core developers
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #
 # Helpful routines for regression testing
 #
 
-# Add python-bitcoinrpc to module search path:
+# Add python-deuscoinrpc to module search path:
 import os
 import sys
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "python-bitcoinrpc"))
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "python-deuscoinrpc"))
 
 from decimal import Decimal, ROUND_DOWN
 import json
@@ -18,7 +18,7 @@ import subprocess
 import time
 import re
 
-from bitcoinrpc.authproxy import AuthServiceProxy, JSONRPCException
+from deuscoinrpc.authproxy import AuthServiceProxy, JSONRPCException
 from util import *
 
 def p2p_port(n):
@@ -27,7 +27,7 @@ def rpc_port(n):
     return 12000 + n + os.getpid()%999
 
 def check_json_precision():
-    """Make sure json library being used does not lose precision converting BTC values"""
+    """Make sure json library being used does not lose precision converting DEUS values"""
     n = Decimal("20000000.00000003")
     satoshis = int(json.loads(json.dumps(float(n)))*1.0e8)
     if satoshis != 2000000000000003:
@@ -59,13 +59,13 @@ def sync_mempools(rpc_connections):
         time.sleep(1)
         
 
-bitcoind_processes = {}
+deuscoind_processes = {}
 
 def initialize_datadir(dir, n):
     datadir = os.path.join(dir, "node"+str(n))
     if not os.path.isdir(datadir):
         os.makedirs(datadir)
-    with open(os.path.join(datadir, "bitcoin.conf"), 'w') as f:
+    with open(os.path.join(datadir, "deuscoin.conf"), 'w') as f:
         f.write("regtest=1\n");
         f.write("rpcuser=rt\n");
         f.write("rpcpassword=rt\n");
@@ -77,19 +77,19 @@ def initialize_chain(test_dir):
     """
     Create (or copy from cache) a 200-block-long chain and
     4 wallets.
-    bitcoind and bitcoin-cli must be in search path.
+    deuscoind and deuscoin-cli must be in search path.
     """
 
     if not os.path.isdir(os.path.join("cache", "node0")):
         devnull = open("/dev/null", "w+")
-        # Create cache directories, run bitcoinds:
+        # Create cache directories, run deuscoinds:
         for i in range(4):
             datadir=initialize_datadir("cache", i)
-            args = [ "bitcoind", "-keypool=1", "-datadir="+datadir, "-discover=0" ]
+            args = [ "deuscoind", "-keypool=1", "-datadir="+datadir, "-discover=0" ]
             if i > 0:
                 args.append("-connect=127.0.0.1:"+str(p2p_port(0)))
-            bitcoind_processes[i] = subprocess.Popen(args)
-            subprocess.check_call([ "bitcoin-cli", "-datadir="+datadir,
+            deuscoind_processes[i] = subprocess.Popen(args)
+            subprocess.check_call([ "deuscoin-cli", "-datadir="+datadir,
                                     "-rpcwait", "getblockcount"], stdout=devnull)
         devnull.close()
         rpcs = []
@@ -112,7 +112,7 @@ def initialize_chain(test_dir):
 
         # Shut them down, and remove debug.logs:
         stop_nodes(rpcs)
-        wait_bitcoinds()
+        wait_deuscoinds()
         for i in range(4):
             os.remove(debug_log("cache", i))
 
@@ -120,7 +120,7 @@ def initialize_chain(test_dir):
         from_dir = os.path.join("cache", "node"+str(i))
         to_dir = os.path.join(test_dir,  "node"+str(i))
         shutil.copytree(from_dir, to_dir)
-        initialize_datadir(test_dir, i) # Overwrite port/rpcport in bitcoin.conf
+        initialize_datadir(test_dir, i) # Overwrite port/rpcport in deuscoin.conf
 
 def _rpchost_to_args(rpchost):
     '''Convert optional IP:port spec to rpcconnect/rpcport args'''
@@ -144,14 +144,14 @@ def _rpchost_to_args(rpchost):
 
 def start_node(i, dir, extra_args=None, rpchost=None):
     """
-    Start a bitcoind and return RPC connection to it
+    Start a deuscoind and return RPC connection to it
     """
     datadir = os.path.join(dir, "node"+str(i))
-    args = [ "bitcoind", "-datadir="+datadir, "-keypool=1", "-discover=0" ]
+    args = [ "deuscoind", "-datadir="+datadir, "-keypool=1", "-discover=0" ]
     if extra_args is not None: args.extend(extra_args)
-    bitcoind_processes[i] = subprocess.Popen(args)
+    deuscoind_processes[i] = subprocess.Popen(args)
     devnull = open("/dev/null", "w+")
-    subprocess.check_call([ "bitcoin-cli", "-datadir="+datadir] +
+    subprocess.check_call([ "deuscoin-cli", "-datadir="+datadir] +
                           _rpchost_to_args(rpchost)  +
                           ["-rpcwait", "getblockcount"], stdout=devnull)
     devnull.close()
@@ -162,7 +162,7 @@ def start_node(i, dir, extra_args=None, rpchost=None):
 
 def start_nodes(num_nodes, dir, extra_args=None, rpchost=None):
     """
-    Start multiple bitcoinds, return RPC connections to them
+    Start multiple deuscoinds, return RPC connections to them
     """
     if extra_args is None: extra_args = [ None for i in range(num_nodes) ]
     return [ start_node(i, dir, extra_args[i], rpchost) for i in range(num_nodes) ]
@@ -172,19 +172,19 @@ def debug_log(dir, n_node):
 
 def stop_node(node, i):
     node.stop()
-    bitcoind_processes[i].wait()
-    del bitcoind_processes[i]
+    deuscoind_processes[i].wait()
+    del deuscoind_processes[i]
 
 def stop_nodes(nodes):
     for i in range(len(nodes)):
         nodes[i].stop()
     del nodes[:] # Emptying array closes connections as a side effect
 
-def wait_bitcoinds():
-    # Wait for all bitcoinds to cleanly exit
-    for bitcoind in bitcoind_processes.values():
-        bitcoind.wait()
-    bitcoind_processes.clear()
+def wait_deuscoinds():
+    # Wait for all deuscoinds to cleanly exit
+    for deuscoind in deuscoind_processes.values():
+        deuscoind.wait()
+    deuscoind_processes.clear()
 
 def connect_nodes(from_connection, node_num):
     ip_port = "127.0.0.1:"+str(p2p_port(node_num))

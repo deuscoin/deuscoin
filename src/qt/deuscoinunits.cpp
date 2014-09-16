@@ -40,9 +40,9 @@ QString DeuscoinUnits::id(int unit)
 {
     switch(unit)
     {
-    case DEUS: return QString("btc");
-    case mDEUS: return QString("mbtc");
-    case uDEUS: return QString("ubtc");
+    case DEUS: return QString("deus");
+    case mDEUS: return QString("mdeus");
+    case uDEUS: return QString("udeus");
     default: return QString("???");
     }
 }

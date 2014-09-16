@@ -378,7 +378,7 @@ Value getnetworkinfo(const Array& params, bool fHelp)
             "      \"proxy\": \"host:port\"  (string) the proxy that is used for this network, or empty if none\n"
             "    },\n"
             "  ],\n"
-            "  \"relayfee\": x.xxxx,         (numeric) minimum relay fee for non-free transactions in btc/kb\n"
+            "  \"relayfee\": x.xxxx,         (numeric) minimum relay fee for non-free transactions in deus/kb\n"
             "  \"localaddresses\": [,        (array) list of local addresses\n"
             "    \"address\": \"xxxx\",      (string) network address\n"
             "    \"port\": xxx,              (numeric) network port\n"
