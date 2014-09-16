@@ -61,7 +61,7 @@ Go to [Apple's Developer website](https://developer.apple.com/downloads/download
 
 	Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk
 
-I used PowerISO to extract it, but you might be able to find free software some place. Use 7Zip to create a .tar from it and then use it to turn the .tar into a .tar.gz. Via WinSCP, upload it to the newly created "inputs" directory.
+That must be done on Mac OSX or the compile will fail. If you do not have a Mac OSX system handy, get a copy from [Mike Perry's files](https://people.torproject.org/~mikeperry/mirrors/sources/MacOSX10.7.sdk.tar.gz).
 
 In PuTTY, run the following wgets.
 
@@ -103,9 +103,6 @@ Now we build the dependencies for Deuscoin on Gitian. Ignore the ominous "stdin:
 	mv build/out/qt-*.zip inputs/
 	./bin/gbuild ../deuscoin/contrib/gitian-descriptors/protobuf-win.yml
 	mv build/out/protobuf-*.zip inputs/
-
-These failed. If you can make them work, please get in touch.
-
 	./bin/gbuild ../deuscoin/contrib/gitian-descriptors/gitian-osx-native.yml
 	mv build/out/osx-*.tar.gz inputs/
 	./bin/gbuild ../deuscoin/contrib/gitian-descriptors/gitian-osx-depends.yml
