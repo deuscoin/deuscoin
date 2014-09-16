@@ -26,7 +26,7 @@ Once you're finished, save up and run the following to get online:
 	sudo ifdown eth0
 	sudo ifup eth0
 
-From now on you can use PuTTY to make it easier by copy and pasting stuff. Now we'll add the required packages.
+From now on you can use PuTTY to make it easier by copy and pasting stuff. Now we'll add the required packages. Use WinSCP to move files back and forth easily from your Linux VirtualBox instance.
 
 **Gitian Setup**
 
