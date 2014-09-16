@@ -2,7 +2,7 @@ The tools in this directory are used for easily porting Bitcoin to another coin.
 
 **rename.sh**
 
-Renames the files from containing the word "bitcoin" so that they contain "deuscoin"
+Renames the files from containing the word "bitcoin" so that they contain "deuscoin." Run this before graphics.sh so that the old files don't overwrite your new ones.
 
 **sed-replace.sh**
 
@@ -10,7 +10,7 @@ Changes "bitcoin" related strings to "deuscoin" related strings without crapping
 
 **graphics.sh**
 
-Copies the graphics from /tools/graphics into the /src/qt/res tree
+Copies the graphics from /tools/graphics into the tree
 
 **production-release.sh**
 
