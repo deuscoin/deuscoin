@@ -7,7 +7,7 @@ Virtualbox running an instance of Ubuntu 12.04.4 64Bit (The version must be exac
 
 **Building - Rig Setup**
 
-Follow the setup for Ubuntu in Virtualbox as described in the [Bitcoin Documentation](https://github.com/bitcoin/bitcoin/blob/master/doc/gitian-building.md)
+Follow the setup for Ubuntu in Virtualbox as described in the [Bitcoin Documentation](doc/gitian-building.md)
 
 Don't do the port mapping portion of that tutorial, but instead change the Network -> Attached to to be "Bridged Adapter." Boot into Ubuntu and log in as your user and run the following command.
 
@@ -61,7 +61,7 @@ There will be a bunch of warnings, but you can ignore them.
 
 This section only needs to be completed once.
 
-Now we'll be following the [Bitcoin Release Process](https://github.com/bitcoin/bitcoin/blob/master/doc/release-process.md) loosely. Make the directory we'll be downloading everything to.
+Now we'll be following the [Bitcoin Release Process](doc/release-process.md) loosely. Make the directory we'll be downloading everything to.
 
 	mkdir -p inputs; cd inputs/
 
